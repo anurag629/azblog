@@ -22,7 +22,7 @@
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Catagories</a>
                         <div class="dropdown-menu">
                         {% for cat in cats %}
-                        <a class="dropdown-item" href="#">{{cat.title}}</a>
+                        <a class="dropdown-item" href="/category/{{cat.url}}">{{cat.title}}</a>
                         {% endfor %}
                     </div>
                     </li>
@@ -55,12 +55,12 @@
     {% comment %} Start Content {% endcomment %}
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-lg-8">
+            <div class="col-md-10 col-lg-8 mx-auto">
                 {% for p in posts %}
                 
                 <div class="post-preview"><a href="/post/{{p.url}}">
                         <h3 class="post-title">{{p.title}}</h3>
-                        <h4 class="post-subtitle">{{p.content |truncatewords:30 | safe}}</h4>
+                        <h4 class="post-subtitle">{{p.content |truncatewords:15 | safe}}</h4>
                     </a>
                     <p class="post-meta"> <em> Posted on :&nbsp;</em>{{p.add_date}}</p>
                 </div>

@@ -21,7 +21,7 @@
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Catagories</a>
                         <div class="dropdown-menu">
                         {% for cat in cats %}
-                        <a class="dropdown-item" href="#">{{cat.title}}</a>
+                        <a class="dropdown-item" href="/category/{{cat.url}}">{{cat.title}}</a>
                         {% endfor %}
                     </div>
                     </li>

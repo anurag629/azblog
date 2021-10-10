@@ -37,3 +37,15 @@ def contact(request):
         'cats': cats,
     }
     return render(request, 'contact.html', data)
+
+
+def category(request, url):
+    cat = Category.objects.get(url=url)
+    posts = Post.objects.filter(cat=cat)
+    cats = Category.objects.all()
+    data = {
+        'cats': cats,
+        'cat': cat,
+        'posts': posts
+    }
+    return render(request, 'category.html', data)
