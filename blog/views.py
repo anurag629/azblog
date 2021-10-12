@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import Category, Post
 # Create your views here.
+
+
+def home(request):
+    return redirect(index)
 
 
 def index(request):
