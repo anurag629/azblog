@@ -1,162 +1,84 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Blog Post - azblog</title>
-    <meta name="description" content="blogging website" />
-    <link
-      rel="stylesheet"
-      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
-    />
-    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}" />
-    {% comment %} adsence {% endcomment %}
-    <script
-      data-ad-client="ca-pub-9861189449931359"
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    ></script>
-    {% comment %} End adsence {% endcomment %}
-  </head>
 
-  <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blog Post - egblog</title>
+    <meta name="description" content="blogging website">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}">
+    {% comment %} adsence {% endcomment %}
+    <script data-ad-client="ca-pub-9861189449931359" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% comment %} End adsence {% endcomment %}
+</head>
+
+<body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="\index">azblog</a
-        ><button
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          class="navbar-toggler"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-              <a
-                class="dropdown-toggle nav-link"
-                aria-expanded="false"
-                data-bs-toggle="dropdown"
-                href="#"
-                >Catagories</a
-              >
-              <div class="dropdown-menu">
-                {% for cat in cats %}
-                <a class="dropdown-item" href="/category/{{cat.url}}"
-                  >{{cat.title}}</a
-                >
-                {% endfor %}
-              </div>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="\index">Home</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="\about">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="\contact">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="\admin">Admin</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <header
-      class="masthead"
-      style="background-image: url('{% static 'img/post-bg.jpg' %}')"
-    >
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-8 mx-auto position-relative">
-            <div class="post-heading">
-              <h1>{{post.title}}</h1>
-              <span
-                style="
-                  border: 2px solid black;
-                  border-radius: 5px;
-                  background-color: red;
-                "
-                >&nbsp;&nbsp;{{post.cat.title}}&nbsp;&nbsp;</span
-              >
-              <br />
-              <span class="meta">Posted on : &nbsp; {{post.add_date}}</span>
+        <div class="container"><a class="navbar-brand" href="\index">egblog</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Catagories</a>
+                        <div class="dropdown-menu">
+                        {% for cat in cats %}
+                        <a class="dropdown-item" href="/category/{{cat.url}}">{{cat.title}}</a>
+                        {% endfor %}
+                    </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="\index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="\about">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="\contact">Contact us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="\admin">Admin</a></li>
+                </ul>
             </div>
-          </div>
         </div>
-      </div>
+    </nav>
+    <header class="masthead" style="background-image:url('{% static 'img/post-bg.jpg' %}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="post-heading">
+                        <h1>{{post.title}}</h1>
+                        <span style="border: 2px solid black;border-radius: 5px;background-color:red;">&nbsp;&nbsp;{{post.cat.title}}&nbsp;&nbsp;</span>
+                        <br>
+                        <span class="meta">Posted on : &nbsp; {{post.add_date}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <article>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-8 mx-auto">
-            <h2>{{post.title}}</h2>
-            <h5>{{post.cat.title}}</h5>
-            <p>{{post.content | safe}}</p>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <h2>{{post.title}}</h2>
+                    <h5>{{post.cat.title}}</h5>
+                    <p>{{post.content | safe}}</p>
+                </div>
+            </div>
         </div>
-      </div>
     </article>
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-8 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="https://twitter.com/anurag_629"
-                  ><span class="fa-stack fa-lg"
-                    ><i class="fa fa-circle fa-stack-2x"></i
-                    ><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span
-                ></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/in/anurag629/"
-                  ><span class="fa-stack fa-lg"
-                    ><i class="fa fa-circle fa-stack-2x"></i
-                    ><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span
-                ></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/anurag629"
-                  ><span class="fa-stack fa-lg"
-                    ><i class="fa fa-circle fa-stack-2x"></i
-                    ><i class="fa fa-github fa-stack-1x fa-inverse"></i></span
-                ></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/anurag_629/"
-                  ><span class="fa-stack fa-lg"
-                    ><i class="fa fa-circle fa-stack-2x"></i
-                    ><i
-                      class="fa fa-instagram fa-stack-1x fa-inverse"
-                    ></i></span
-                ></a>
-              </li>
-            </ul>
-            <p class="text-muted copyright">
-              Copyright&nbsp;©&nbsp;azblog 2021
-            </p>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a href="https://twitter.com/anurag_629"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/anurag629/"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                        <li class="list-inline-item"><a href="https://github.com/anurag629"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/anurag_629/"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a></li>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;egblog 2021</p>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/script.min.js' %}"></script>
-  </body>
+</body>
+
 </html>
