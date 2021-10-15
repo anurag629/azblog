@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import render, redirect
 from blog.models import Category, Post
 # Create your views here.
@@ -36,11 +37,26 @@ def about(request):
 
 
 def contact(request):
-    cats = Category.objects.all()
-    data = {
-        'cats': cats,
-    }
-    return render(request, 'contact.html', data)
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        message = request.POST['message']
+
+        cats = Category.objects.all()
+        data = {
+            'cats': cats,
+            'name': "Welcome! " + name,
+        }
+
+        return render(request, 'contact.html', data)
+
+    else:
+        cats = Category.objects.all()
+        data = {
+            'cats': cats,
+        }
+        return render(request, 'contact.html', data)
 
 
 def category(request, url):
