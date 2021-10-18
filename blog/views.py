@@ -46,7 +46,7 @@ def contact(request):
         cats = Category.objects.all()
         data = {
             'cats': cats,
-            'name': "Welcome! " + name,
+            'name': "Thanks! " + name + " We received your contact details and will respond shortly.....",
         }
 
         return render(request, 'contact.html', data)
