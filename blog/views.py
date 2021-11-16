@@ -15,7 +15,7 @@ def index(request):
         'posts': posts,
         'cats': cats,
     }
-    return render(request, 'index.html', data)
+    return render(request, 'blog/index.html', data)
 
 
 def post(request, url):
@@ -25,7 +25,7 @@ def post(request, url):
         'post': post,
         'cats': cats,
     }
-    return render(request, 'post.html', data)
+    return render(request, 'blog/post.html', data)
 
 
 def about(request):
@@ -33,7 +33,7 @@ def about(request):
     data = {
         'cats': cats,
     }
-    return render(request, 'about.html', data)
+    return render(request, 'blog/about.html', data)
 
 
 def contact(request):
@@ -49,14 +49,14 @@ def contact(request):
             'name': "Thanks! " + name + " We received your contact details and will respond shortly.....",
         }
 
-        return render(request, 'contact.html', data)
+        return render(request, 'blog/contact.html', data)
 
     else:
         cats = Category.objects.all()
         data = {
             'cats': cats,
         }
-        return render(request, 'contact.html', data)
+        return render(request, 'blog/contact.html', data)
 
 
 def category(request, url):
@@ -68,4 +68,4 @@ def category(request, url):
         'cat': cat,
         'posts': posts
     }
-    return render(request, 'category.html', data)
+    return render(request, 'blog/category.html', data)
