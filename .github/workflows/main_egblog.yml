@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'egblog'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FEBA39283069403BAFE09892191AA1AF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BAD93BD9728B43CE85FBC363E5CC79F4 }}
