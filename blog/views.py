@@ -21,6 +21,9 @@ def index(request):
 def post(request, url):
     post = Post.objects.get(url=url)
     cats = Category.objects.all()
+    count_visitors = Post.objects.get(url=url)
+    count_visitors.count_visitor = count_visitors.count_visitor + 1
+    count_visitors.save()
     data = {
         'post': post,
         'cats': cats,
