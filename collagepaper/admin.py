@@ -19,7 +19,7 @@ class BranchAdmin(admin.ModelAdmin):
 
 
 class PaperAdmin(admin.ModelAdmin):
-    list_display = ('paper_subject', 'paper_year')
+    list_display = ('paper_subject', 'paper_semester', 'paper_year')
     search_field = ('branch', 'year')
 
 
