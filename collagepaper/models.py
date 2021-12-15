@@ -32,11 +32,14 @@ class Branch(models.Model):
 
 
 class Paper(models.Model):
+    paper_code = models.AutoField(primary_key=True)
     paper_subject = models.CharField(max_length=100)
     collage = models.ManyToManyField(Collage)
     branch = models.ManyToManyField(Branch)
-    paper_code = models.AutoField(primary_key=True)
     paper_year = models.PositiveIntegerField(
         default=current_year(), validators=[MinValueValidator(1900), max_value_current_year])
     paper_semester = models.IntegerField(null=False)
     pdf_paper = models.FileField(upload_to='collagepaper/')
+
+    def __str__(self):
+        return self.paper_subject

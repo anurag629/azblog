@@ -25,32 +25,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
-                    <form action="{% url 'contact' %}" method="post" id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form action="{% url 'paper' %}" method="post" id="contactForm" name="sentMessage" novalidate="novalidate">
                         {% csrf_token %}
                         <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupSelect01">Select Collage</label>
-                            <select class="form-select" id="inputGroupSelect01">
+                            <label class="input-group-text" for="collage_name">Select Collage</label>
+                            <select class="form-select" id="collage_name" name="collage_name">
                                 <option selected>Choose...</option>
                                 {% for collage in collages %}
-                                <option value="1">{{collage.collage_name}}</option>
+                                <option value="{{collage.collage_name}}">{{collage.collage_name}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupSelect01">Branch</label>
-                            <select class="form-select" id="inputGroupSelect01">
+                            <label class="input-group-text" for="branch_name">Branch</label>
+                            <select class="form-select" id="branch_name" name="branch_name">
                                 <option selected>Choose...</option>
                                 {% for branch in branchs %}
-                                <option value="1">{{branch.branch_name}}</option>
+                                <option value="{{branch.branch_id}}">{{branch.branch_name}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupSelect01">Year</label>
-                            <select class="form-select" id="inputGroupSelect01">
+                            <label class="input-group-text" for="year">Year</label>
+                            <select class="form-select" id="year" name="year">
                                 <option selected>Choose...</option>
                                 {% for paper in papers %}
-                                <option value="1">{{paper.paper_year}}</option>
+                                <option value="{{paper.paper_year}}">{{paper.paper_year}}</option>
                                 {% endfor %}
                             </select>
                         </div>
