@@ -1,0 +1,44 @@
+{% extends 'collagepaper/comman.html' %}
+{% load static %}
+
+{% block body %}
+    
+    {% comment %} Start header {% endcomment %}
+    <header class="masthead" style="background-image:url('{% static 'img/home-bg.jpg' %}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h2>Semester : {{paper.paper_semester}}</h2>
+                        <h2>Subject : {{paper.paper_subject}}</h2>
+                        <h2>Year : {{paper.paper_year}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% comment %} End header {% endcomment %}
+    
+
+    {% comment %} Start Content {% endcomment %}
+    
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <embed src="{{paper.pdf_paper.url}}" type="application/pdf" style="width: 100%;height: 100%;border: none;" />
+                </div>
+            </div>
+        </div>
+    </article>
+
+    {% comment %} End  Content {% endcomment %}
+
+    
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.min.js' %}"></script>
+
+{% endblock body %}
+
+

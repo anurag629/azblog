@@ -147,3 +147,5 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 django_heroku.settings(locals())
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

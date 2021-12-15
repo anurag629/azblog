@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from collagepaper.models import Collage, Branch, Paper
+from django.http import FileResponse
 # Create your views here.
 
 
@@ -22,8 +23,17 @@ def paper(request):
         year = request.POST['year']
         papers = Paper.objects.filter(
             collage=collage_name, branch=branch_name, paper_year=year)
-        for i in papers:
-            print(i.paper_subject)
-        return redirect(index)
+        data = {
+            'papers': papers,
+        }
+        return render(request, 'collagepaper/paper_list.html', data)
     else:
         return redirect(index)
+
+
+def paper_pdf(request, paper_code):
+    paper = Paper.objects.get(paper_code=paper_code)
+    data = {
+        'paper': paper,
+    }
+    return render(request, 'collagepaper/paper_pdf.html', data)
