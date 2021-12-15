@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'tinymce',
+    'collagepaper',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,5 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 django_heroku.settings(locals())
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

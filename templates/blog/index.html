@@ -1,0 +1,48 @@
+{% extends 'blog/comman.html' %}
+{% load static %}
+
+{% block body %}
+    
+    {% comment %} Start header {% endcomment %}
+    <header class="masthead" style="background-image:url('{% static 'img/home-bg.jpg' %}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h2>Always do your best. What you plant now, you will harvest later.</h2><span class="subheading"></span>
+                        <h6>- Og Mandino</h6><span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% comment %} End header {% endcomment %}
+    
+
+    {% comment %} Start Content {% endcomment %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                {% for p in posts %}
+                
+                <div class="post-preview"><a href="/post/{{p.url}}">
+                        <h3 class="post-title">{{p.title}}</h3>
+                        <h4 class="post-subtitle">{{p.content |truncatewords:15 | safe}}</h4>
+                    </a>
+                    <p class="post-meta"> <em> Posted on :&nbsp;</em>{{p.add_date}}</p>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% comment %} End  Content {% endcomment %}
+
+    
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.min.js' %}"></script>
+
+{% endblock body %}
+
+

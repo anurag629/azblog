@@ -1,0 +1,73 @@
+{% extends 'collagepaper/comman.html' %}
+{% load static %}
+
+{% block body %}
+    
+    {% comment %} Start header {% endcomment %}
+    <header class="masthead" style="background-image:url('{% static 'img/home-bg.jpg' %}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h2>Here you will get almost all previous year papers</h2><span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% comment %} End header {% endcomment %}
+    
+
+    {% comment %} Start Content {% endcomment %}
+    
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <form action="{% url 'paper' %}" method="post" id="contactForm" name="sentMessage" novalidate="novalidate">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="collage_name">Select Collage</label>
+                            <select class="form-select" id="collage_name" name="collage_name">
+                                <option selected>Choose...</option>
+                                {% for collage in collages %}
+                                <option value="{{collage.collage_id}}">{{collage.collage_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="branch_name">Branch</label>
+                            <select class="form-select" id="branch_name" name="branch_name">
+                                <option selected>Choose...</option>
+                                {% for branch in branchs %}
+                                <option value="{{branch.branch_id}}">{{branch.branch_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="year">Year</label>
+                            <select class="form-select" id="year" name="year">
+                                <option selected>Choose...</option>
+                                {% for paper in papers %}
+                                <option value="{{paper.paper_year}}">{{paper.paper_year}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                            
+                        <button class="btn btn-primary btn-block" id="sendMessageButton" type="submit">Get Papers</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    {% comment %} End  Content {% endcomment %}
+
+    
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.min.js' %}"></script>
+
+{% endblock body %}
+
+
