@@ -49,8 +49,10 @@
                             <label class="input-group-text" for="year">Year</label>
                             <select class="form-select" id="year" name="year">
                                 <option selected>Choose...</option>
-                                {% for paper in papers %}
+                                {% for paper in papers|dictsort:'paper_year' %}
+                                {% ifchanged %}
                                 <option value="{{paper.paper_year}}">{{paper.paper_year}}</option>
+                                {% endifchanged %}
                                 {% endfor %}
                             </select>
                         </div>
