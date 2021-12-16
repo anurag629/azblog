@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3b58b254-4cf3-4eac-a184-bda11b6cbcaf/resourceGroups/egblog/providers/Microsoft.Web/sites/egblog",
+    "appService.deploySubpath": "."
+}
