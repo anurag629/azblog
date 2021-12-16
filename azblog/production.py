@@ -6,7 +6,7 @@ import os
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ['egblog.me']
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']
                  ] if 'WEBSITE_HOSTNAME' in os.environ else []
 
 # WhiteNoise configuration
