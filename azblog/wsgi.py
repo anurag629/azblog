@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-settings_module = "azblog.production" if 'egblog.me' in os.environ else 'azblog.settings'
+settings_module = "azblog.production" if 'WEBSITE_HOSTNAME' in os.environ else 'azblog.settings'
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 
