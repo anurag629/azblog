@@ -7,7 +7,7 @@ import os
 DEBUG = False
 
 ALLOWED_HOSTS = [os.environ['egblog.me']
-                 ] if 'WEBSITE_HOSTNAME' in os.environ else []
+                 ] if 'egblog.me' in os.environ else []
 
 # WhiteNoise configuration
 MIDDLEWARE = [
