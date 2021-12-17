@@ -1,5 +1,5 @@
 """
-WSGI config for azblog project.
+WSGI config for egblog project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,8 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-settings_module = "azblog.production" if 'egblog.me' in os.environ else 'azblog.settings'
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azblog.settings')
 
 application = get_wsgi_application()
