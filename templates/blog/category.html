@@ -26,8 +26,8 @@
                 {% for p in posts %}
                 
                 <div class="post-preview"><a href="/post/{{p.url}}">
-                        <h3 class="post-title">{{p.title}}</h3>
-                        <h4 class="post-subtitle">{{p.content |truncatewords:15 | safe}}</h4>
+                        <h4 class="post-title">{{p.title}}</h4>
+                        <p class="post-subtitle">{{p.content |truncatewords:10 | safe}}</p>
                     </a>
                     <p class="post-meta"> <em> Posted on :&nbsp;</em>{{p.add_date}}</p>
                 </div>
